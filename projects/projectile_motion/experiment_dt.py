@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 
 g = -9.81
 v0 = 20
-angulo = 45
-angulo_rad = np.radians(angulo)
+angle = 45
+angle_rad = np.radians(angle)
 
 for dt in [0.01, 0.05, 0.1]:
     x=[]
@@ -13,8 +13,8 @@ for dt in [0.01, 0.05, 0.1]:
     px=0
     py=0
 
-    vx = v0*np.cos(angulo_rad)
-    vy = v0*np.sin(angulo_rad)
+    vx = v0*np.cos(angle_rad)
+    vy = v0*np.sin(angle_rad)
 
     while py >= 0:
 
@@ -25,13 +25,21 @@ for dt in [0.01, 0.05, 0.1]:
         py = py + vy*dt
 
         vy = vy + g*dt
-
+    exact_range = v0**2 / abs(g)
     plt.plot(x,y,label=f"dt={dt}")
-    print(f"dt = {dt} -> alcance = {px: .3f} m")
-    
+    print(f"dt = {dt} -> Range = {px: .3f} m")
+    error = abs(px - exact_range)
+relative_error = error / exact_range * 100
+
+print(f"dt = {dt}")
+print(f"  Simulated Range: {px:.3f} m")
+print(f"  Absolute Error: {error:.3f} m")
+print(f"  Relative Error: {relative_error:.2f} %")
+print()
+
 plt.legend()
-plt.xlabel("Distancia (m)")
-plt.ylabel("Altura (m)")
-plt.title("Mov. parabólico con distintos dt")
+plt.xlabel("Distance (m)")
+plt.ylabel("Height (m)")
+plt.title("Parabolic Motion with Different dt Values")
 plt.grid(True)
 plt.show()
