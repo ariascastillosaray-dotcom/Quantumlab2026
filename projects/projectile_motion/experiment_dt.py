@@ -6,6 +6,9 @@ v0 = 20
 angle = 45
 angle_rad = np.radians(angle)
 
+dt_values = []
+relative_errors = []
+
 for dt in [0.01, 0.05, 0.1]:
     x=[]
     y=[]
@@ -17,7 +20,6 @@ for dt in [0.01, 0.05, 0.1]:
     vy = v0*np.sin(angle_rad)
 
     while py >= 0:
-
         x.append(px)
         y.append(py)
 
@@ -25,21 +27,34 @@ for dt in [0.01, 0.05, 0.1]:
         py = py + vy*dt
 
         vy = vy + g*dt
-    exact_range = v0**2 / abs(g)
-    plt.plot(x,y,label=f"dt={dt}")
-    print(f"dt = {dt} -> Range = {px: .3f} m")
-    error = abs(px - exact_range)
-relative_error = error / exact_range * 100
 
-print(f"dt = {dt}")
-print(f"  Simulated Range: {px:.3f} m")
-print(f"  Absolute Error: {error:.3f} m")
-print(f"  Relative Error: {relative_error:.2f} %")
-print()
+    # analytical range for projectile on level ground: (v0^2 * sin(2*theta)) / |g|
+    exact_range = (v0**2 * np.sin(2*angle_rad)) / abs(g)
+    plt.plot(x, y, label=f"dt={dt}")
+    print(f"dt = {dt} -> Range = {px: .3f} m")
+
+    error = abs(px - exact_range)
+    relative_error = error / exact_range * 100
+    dt_values.append(dt)
+    relative_errors.append(relative_error)
+
+    print(f"dt = {dt}")
+    print(f"  Simulated Range: {px:.3f} m")
+    print(f"  Absolute Error: {error:.3f} m")
+    print(f"  Relative Error: {relative_error:.2f} %")
+    print()
 
 plt.legend()
 plt.xlabel("Distance (m)")
 plt.ylabel("Height (m)")
 plt.title("Parabolic Motion with Different dt Values")
+plt.grid(True)
+plt.show()
+
+plt.figure()
+plt.plot(dt_values, relative_errors, marker='o')
+plt.xlabel("dt (s)")
+plt.ylabel("Relative Error (%)")
+plt.title("Convergence of Euler Method")
 plt.grid(True)
 plt.show()

@@ -1,4 +1,4 @@
 #Quantumlab2026
-##Dia1
-Objetivo: Entender que significa simular un sistema físico
-    Observamos en el experiment_dt que la funcion converge (hay parabolas que se tapan unas a otras) y que cuanto mas pequeño es dt mas preciso sera por el metodo de euler. A continuacion, se comprueba cual es el error existente en dt y nos damos cuenta de que Euler es exacto cuando no hay aceleracion
+##Day1
+Objetive: Understand de meaning of simulate a physic problem
+    We can see in experiment_dt that the function converges and its also noticeable that the smaller the dt is the more accurate the simulation using the Euler method becomes. Then, we are able to found out the error in the exact range thanks to the exact solution, that we already know because of using an angle of 45 degrees.
