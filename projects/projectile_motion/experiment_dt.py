@@ -31,7 +31,7 @@ for dt in [0.5, 0.1, 0.05, 0.01]:
 
     plt.plot(x,y,label=f"dt={dt}")
     print(f"dt = {dt} -> alcance = {px: .3f} m")
-    plt.plot(px, py, label=f"dt = {dt}")
+    
 plt.legend()
 plt.xlabel("Distancia (m)")
 plt.ylabel("Altura (m)")
