@@ -1,7 +1,10 @@
 # Quantumlab2026
 Learning computational physics through quantum mechanics
+
+
 Projectile_motion/EXPERIMENT_DT
 We wanted to see how the size of the temporal step can affect to the precission in a simulated parabolic movement
+
 Hipothesis:
     If we reduce the size of the temporal step (dt), it should let us be closer to the exact solution
 Method:
