@@ -21,7 +21,7 @@ Conclusion:
     The Euler method converges when we reduce dt at the cost of increased computation time
 
 
-## Projectile_motion/EXPERIMENT_ANGLE
+### Projectile_motion/EXPERIMENT_ANGLE
 The objective is to study how the lunch angle affects the horizontal range of the projectile. The projectile is launched with a fixed initial velocity, while the launch angle can vary between 0º and 90º. For each angle we use the Euler method in order to simulate the trajectories.
 
 Method:
@@ -41,3 +41,18 @@ Results:
 
 Conclusion:
     We have demonstrate numerically how the launch angle affects the range of a projectile. And the experiment successfully reproduces the expected physical behavior, with the maximum range occuring at 45º
+
+
+#### Projectile_motion/EXPERIMENT_ERROR
+The goal of the experiment is to study how can affect dt to the numerical error of the Euler method
+
+Method:
+    Simulate projectile motion with different dt values and compare de analytical solution with the numerical range.
+
+Results:
+    Decreasing dt decreases numerical error.
+    dt = 0.5s -> Error = 8.723m
+    dt = 0.01s -> Error = 0.273
+
+Conclusion:
+    Smaller time steps gives us a more accurate solution, but we are using more computational steps
