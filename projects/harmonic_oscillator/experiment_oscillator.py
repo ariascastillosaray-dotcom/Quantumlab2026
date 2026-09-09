@@ -27,6 +27,7 @@ for time in t:
 plt.figure(figsize=(10, 6))
 plt.plot(t, positions, label='Position')
 plt.plot(t, velocities, label='Velocity')
+plt.title('Position and Velocity of a Harmonic Oscillator')
 plt.xlabel('Time')
 plt.ylabel('Value')
 plt.legend()
